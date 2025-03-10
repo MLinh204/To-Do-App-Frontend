@@ -67,21 +67,6 @@ function Profile({ mode }) {
           </h2>
           {mode === 'view' ? (
             <div className="profile-card">
-              <div className='content'>
-              <h3 style={{
-                fontSize: '25px',
-                margin: '0'
-              }}>
-                <strong>Username:</strong> {user.username}
-              </h3>
-              <h4 style={{
-                fontSize: '20px',
-                margin: '5px 0 20px',
-                fontWeight: 'normal',
-              }}>
-                <strong>Email:</strong> {user.email}
-              </h4>
-              </div>
               {user.profilePicture ? (
                 <img
                   src={`${user.profilePicture}`}
@@ -90,9 +75,32 @@ function Profile({ mode }) {
                 />
               ) : (
                 <p className="no-profile-picture">
-                  No profile picture set
+                  You haven't set up a profile picture yet!
                 </p>
               )}
+              <div className='content'>
+              <h3 style={{
+                fontSize: '20px',
+                margin: '5px 0 20px',
+                fontWeight: 'normal',
+              }}>
+                <div className='info'>
+                <strong>Username:</strong><br />
+                <p className='info-text'>{user.username}</p>
+                </div>
+              </h3>
+              <h4 style={{
+                fontSize: '20px',
+                margin: '5px 0 20px',
+                fontWeight: 'normal',
+              }}>
+                <div className='info'>
+                <strong>Email:</strong> 
+                <p className='info-text'>{user.email}</p>
+                </div>
+              </h4>
+              </div>
+              
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="form-container">

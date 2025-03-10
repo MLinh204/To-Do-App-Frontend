@@ -15,7 +15,7 @@ function TodoTask({ tasks, onUpdateTask, onDeleteTask, onChangeStatus }) {
             <h4>{task.title}</h4>
             <p><strong>Description: </strong>{task.description}</p>
             <p><strong>Due: </strong>{moment(task.due_date).format("MMMM Do, YYYY")}</p>
-            <p><strong>Status: </strong>{task.status}</p>
+            <p style={{textTransform: "uppercase"}}><strong>Status: </strong>{task.status}</p>
 
             <button className="button-secondary" onClick={() => onDeleteTask(task.id)}>Delete</button>
             <button className="button-secondary" onClick={() => onUpdateTask(task)}>Edit</button>

@@ -52,8 +52,10 @@ export function AuthProvider({ children }) {
         const { token, user } = response.data;
         setToken(token);
         setUser(user);
+        let userData = user;
+        userData.profilePicture = 'http://localhost:3000' + user.profile_picture;
         localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(userData));
     }
     const register = async (email, password, username) => {
         const response = await apiRegister({ email, password, username });

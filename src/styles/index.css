@@ -126,7 +126,6 @@ label {
 }
 
 input, textarea, select {
-  width: 100%;
   padding: 10px 0;
   margin: 5px 0;
   border: none;
@@ -179,9 +178,10 @@ li {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px var(--shadow-color);
-  width: fit-content;
+  width: 350px;
   transform: translateY(0); 
   align-content: center;
+  overflow-wrap: break-word;
 }
 
 li:hover {
@@ -255,14 +255,14 @@ li button {
 }
 
 .profile-card {
-  background: #63815c;
+  background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 100%;
   margin: 0 auto;
-  display: flex;
-  height: 400px;
+  display: block;
+  height: 560px;
 
 }
 
@@ -322,11 +322,11 @@ li button {
 }
 
 nav a:hover, nav button:hover {
-  color: var(--primary-dark);
+  color: #000000;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
-  transform: scale(1.1); /* Slight scale-up on hover */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 div .btn-container{
   display: flex;
@@ -334,16 +334,15 @@ div .btn-container{
   gap: 10px;
 }
 .content {
-  background-color: #c1c1c1; /* Light gray background */
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  width: fit-content;
+  width: 100%;
   font-family: "Georgia", serif;
   height: 100px;
-  align-content: center;
   margin: 50px auto;
   color: #333;
+  position: absolute;
+  text-align: left  ;
 }
 
 .content p {
@@ -352,5 +351,41 @@ div .btn-container{
 }
 
 .content strong {
-  color: #333; /* Darker text for labels */
+  color: #333; 
 }
+.profile-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: none;
+  background: #686060;
+  cursor: pointer;
+}
+
+.profile-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: fill; 
+}
+li.nav-btn {
+  background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    width: 200px;
+    transform: translateY(0);
+    align-content: center;
+}
+div.info{
+  display: block;
+  width: 95%;
+}
+p.info-text{
+  font-weight: 100;
+    font-size: 18px;
+    border-bottom: 1px solid;
+}
+
+

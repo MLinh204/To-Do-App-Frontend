@@ -23,21 +23,27 @@ function NavigationBar() {
     <nav>
       <ul style={{ display: "flex", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ display: "flex", gap: "20px" }}>
-          <li>
+          <li className="nav-btn">
             <NavLink to="/home" className={({ isActive }) => (isActive ? "active" : "")}>
               Home
             </NavLink>
           </li>
-          <li>
+          <li className="nav-btn">
             <NavLink to="/todo" className={({ isActive }) => (isActive ? "active" : "")}>
               Todo List
             </NavLink>
           </li>
         </div>
         {user && (
-          <li style={{ position: "relative" }}>
-            <button onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}>
-              Profile Settings
+          <li style={{ position: "relative", boxShadow: "none" }}>
+            <button style={{boxShadow: "none"}} onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)} className="profile-button">
+              <img
+                src={`${user.profilePicture}`}
+                alt="Profile"
+                className="profile-img"
+                onError={(e) => console.error('Image load error:', e)}
+              />
+              <span>Profile Settings</span>
             </button>
             {isProfileDropdownOpen && (
               <animated.ul style={dropdownAnimation}>
