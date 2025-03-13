@@ -1,5 +1,7 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { login as apiLogin, register as apiRegister, logout as apiLogout, updateProfile as apiUpdateProfile } from '../utils/api';
+
+const baseURL = "https://to-do-app-backend-production-9b2e.up.railway.app";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
@@ -21,7 +23,7 @@ export function AuthProvider({ children }) {
             const user = JSON.parse(localStorage.getItem('user'));
             const newUser = {
                 ...user,
-                profilePicture: 'http://localhost:3000' + user.profile_picture,
+                profilePicture: baseURL + user.profile_picture,
             }
             return newUser;
 
@@ -53,7 +55,7 @@ export function AuthProvider({ children }) {
         setToken(token);
         setUser(user);
         let userData = user;
-        userData.profilePicture = 'http://localhost:3000' + user.profile_picture;
+        userData.profilePicture = baseURL + user.profile_picture;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(userData));
     }
